@@ -327,17 +327,17 @@ const opList = [
     'donannoyo',
     'donovan',
     'donquino',
-    'donquixoteoflamingo',
-    'donquixote homing',
-    'donquixote mjosgard',
-    'donquixote rosinante',
+    'doflamingo',
+    'homing',
+    'mjosgard',
+    'rosinante',
     'doran',
     'doringo',
     'dorry',
     'dosun',
     'dotaku',
     'dracule mihawk',
-    'dragon number thirteen',
+    'dragon 13',
     'draw',
     'drip',
     'drophy',
@@ -351,7 +351,7 @@ const opList = [
     'eiri',
     'egana',
     'eggplant soldier',
-    'elizabello ii',
+    'elizabello 2',
     'elmy',
     'emporio ivankov',
     'enel',
@@ -1297,6 +1297,7 @@ const opList = [
     'zucca',
     'zunesha',
 ]
+let urls = ["https://static.wikia.nocookie.net/onepiece/images/8/8c/A_O_Anime_Infobox.png", "https://static.wikia.nocookie.net/onepiece/images/f/f1/Abdullah_Anime_Infobox.png"]
 let points = 0
 let guess = []
 let lastGuess = []
@@ -1305,6 +1306,18 @@ let lastGuess = []
 while (points <= 1298) {
     guess.push(prompt(`Points ${points} Guess OP Character: `).toLowerCase())
     if (opList.some(r => guess.includes(r)) && !guess.some(r => lastGuess.includes(r))) {
+        const guessForm = document.querySelector("#guessform")
+        guessForm.addEventListener("submit", function (e) {
+            console.log("submit")
+            e.preventDefault();
+        })
+        const indexThis = guess.toString()
+        const indx = opList.indexOf(indexThis)
+        const imgUrl = urls[indx]
+        const container = document.querySelector("#container")
+        const newImg = document.createElement("img")
+        newImg.src = `${imgUrl}`
+        container.appendChild(newImg)
         points++
         lastGuess.push(...guess)
         guess.pop()
