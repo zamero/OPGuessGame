@@ -694,7 +694,7 @@ const opList = ["a o",
     "lines",
     "lionbuta",
     "lip doughty",
-    "little oars jr.",
+    "little oars",
     "loki",
     "lola",
     "lord of the coast",
@@ -1260,7 +1260,8 @@ const opList = ["a o",
     "zodia",
     "zotto",
     "zucca",
-    "zunesha"
+    "zunesha",
+    "downmood"
 ]
 let points = 0
 let guess = []
@@ -2528,6 +2529,7 @@ const urls = ["https://static.wikia.nocookie.net/onepiece/images/8/8c/A_O_Anime_
     "https://static.wikia.nocookie.net/onepiece/images/a/a1/Zotto_Manga_Infobox.png/",
     "https://static.wikia.nocookie.net/onepiece/images/a/a0/Zucca_Anime_Infobox.png/",
     "https://static.wikia.nocookie.net/onepiece/images/4/4e/Zunesha_Anime_Infobox.png/",
+    "https://media.discordapp.net/attachments/787314819073310720/967886975501758525/unknown.png?width=364&height=752"
 ]
 var minutesLabel = document.getElementById("minutes");
 var secondsLabel = document.getElementById("seconds");
