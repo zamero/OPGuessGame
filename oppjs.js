@@ -1303,32 +1303,35 @@ let guess = []
 let lastGuess = []
 
 
-while (points <= 1298) {
-    guess.push(prompt(`Points ${points} Guess OP Character: `).toLowerCase())
-    if (opList.some(r => guess.includes(r)) && !guess.some(r => lastGuess.includes(r))) {
-        const guessForm = document.querySelector("#guessform")
-        guessForm.addEventListener("submit", function (e) {
-            console.log("submit")
-            e.preventDefault();
-        })
-        const indexThis = guess.toString()
-        const indx = opList.indexOf(indexThis)
-        const imgUrl = urls[indx]
-        const container = document.querySelector("#container")
-        const newImg = document.createElement("img")
-        newImg.src = `${imgUrl}`
-        container.appendChild(newImg)
-        points++
-        lastGuess.push(...guess)
-        guess.pop()
-    }
-    else if (guess.some(r => lastGuess.includes(r))) {
-        alert(`You already guessed ${guess[0]}. Try again`)
-        guess.pop()
-    }
+// while (points <= 1298) {
+const input = document.querySelector("input")
+window.addEventListener("keydown", function (e) {
+    switch (e.code) {
+        case 'Enter':
+            guess.push(input.value.toLowerCase())
+            if (opList.some(r => guess.includes(r)) && !guess.some(r => lastGuess.includes(r))) {
+                const indexThis = guess.toString()
+                const indx = opList.indexOf(indexThis)
+                const imgUrl = urls[indx]
+                const container = document.querySelector("#container")
+                const newImg = document.createElement("img")
+                newImg.src = `${imgUrl}`
+                container.appendChild(newImg)
+                points++
+                lastGuess.push(...guess)
+                guess.pop()
+            }
+            else if (guess.some(r => lastGuess.includes(r))) {
+                alert(`You already guessed ${guess[0]}. Try again`)
+                guess.pop()
+            }
 
-    else {
-        alert(`${guess[0]} Does not exist in the One Piece world. Try again`)
-        guess.pop()
+            else {
+                alert(`${guess[0]} Does not exist in the One Piece world. Try again`)
+                guess.pop()
+            }
+            e.preventDefault();
     }
-}
+})
+    // guess.push(prompt(`Points ${points} Guess OP Character: `).toLowerCase())
+// }
